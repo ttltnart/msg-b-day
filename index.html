@@ -1832,7 +1832,7 @@ document.getElementById("toQuestion").onclick = () => {
 /* S8 → S9 ANSWER RECEIVED */
 /* ================================================= */
 
-document.getElementById("sendAnswer").onclick = () => {
+document.getElementById("sendAnswer").onclick = async () => {
 
   const answer =
     document.getElementById("answer").value.trim();
@@ -1842,9 +1842,38 @@ document.getElementById("sendAnswer").onclick = () => {
     return;
   }
 
-  console.log("Answer received:", answer);
+  const button = document.getElementById("sendAnswer");
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzFLHBmPC0HpcD0k9MBSysZtQSaQLb6s8llpi57sqIKbdIMzVN9d2xf_YcYL67XGKFxTw/exec";
 
-  go(9);
+  button.disabled = true;
+  button.textContent = "SENDING... ♡";
+
+  try {
+
+    await fetch(WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+      },
+      body: new URLSearchParams({
+        name: "Sumithra",
+        answer: answer
+      })
+    });
+
+    document.getElementById("answer").value = "";
+    go(9);
+
+  } catch(error) {
+
+    console.error("Send failed:", error);
+
+    button.disabled = false;
+    button.textContent = "SEND MY ANSWER ♡";
+
+    alert("Something went wrong. Please try again. 🤍");
+  }
 };
 
 
