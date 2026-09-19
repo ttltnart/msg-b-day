@@ -1239,7 +1239,7 @@ input:focus{
     </div>
 <br>
 
-<button id="To Cute Question">
+<button id="toQuestion">
   ONE LAST THING... ♡
 </button>
     
@@ -1330,6 +1330,46 @@ input:focus{
     ">
       There is no right or wrong answer ✦
     </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 10. ANSWER RECEIVED -->
+<!-- ================================================= -->
+
+<section class="screen" id="s9">
+
+  <div class="paper">
+
+    <div style="
+      font-size:65px;
+      margin-bottom:20px;
+    ">
+      💌
+    </div>
+
+    <div class="kicker">
+      MESSAGE RECEIVED
+    </div>
+
+    <h2>
+      Thank You ♡
+    </h2>
+
+    <p class="sub">
+      I read your answer... 🥹<br><br>
+
+      Whatever you wrote,<br>
+      I'll keep this little answer<br>
+      as one more memory of us. ✨
+    </p>
+
+    <div class="script">
+      Your answer means something to me. ♡
+    </div>
 
   </div>
 
@@ -1783,18 +1823,16 @@ function hearts(){
 /* S7 → S8 QUESTION PAGE */
 /* ================================================= */
 
-document.getElementById("toQuestion").addEventListener("click", function(){
-
-  showScreen("s8");
-
-});
+document.getElementById("toQuestion").onclick = () => {
+  go(8);
+};
 
 
 /* ================================================= */
-/* SEND ANSWER */
+/* S8 → S9 ANSWER RECEIVED */
 /* ================================================= */
 
-document.getElementById("sendAnswer").addEventListener("click", function(){
+document.getElementById("sendAnswer").onclick = () => {
 
   const answer =
     document.getElementById("answer").value.trim();
@@ -1806,39 +1844,14 @@ document.getElementById("sendAnswer").addEventListener("click", function(){
 
   console.log("Answer received:", answer);
 
-  showScreen("s9");
-
-});
-  /* ================================================= */
-/* S7 → S8 */
-/* ================================================= */
-
-document.getElementById("toQuestion").addEventListener("click", function(){
-
-  showScreen("s8");
-
-});
+  go(9);
+};
 
 
 /* ================================================= */
-/* S8 → S9 */
+/* ANSWER RECEIVED PAGE */
 /* ================================================= */
 
-document.getElementById("sendAnswer").addEventListener("click", function(){
-
-  const answer =
-    document.getElementById("answer").value.trim();
-
-  if(answer === ""){
-    alert("Write something for me first... 🥹🤍");
-    return;
-  }
-
-  console.log("Answer:", answer);
-
-  showScreen("s9");
-
-});
 </script>
 
 </body>
