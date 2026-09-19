@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07070a">
+
+<title>For Sumithra • My Dear Friend</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Nunito:wght@400;600;700&display=swap');
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  background:#fff0cd;
+  color:#3b2b25;
+  font-family:Inter,Arial,sans-serif;
+}
+
+/* ================= BACKGROUND ================= */
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:-35%;
+  background:
+    radial-gradient(circle at 50% 35%,
+      rgba(214,170,205,.32),transparent 28%),
+    radial-gradient(circle at 12% 90%,
+      rgba(194,181,220,.24),transparent 25%),
+    radial-gradient(circle at 90% 10%,
+      rgba(255,215,225,.28),transparent 20%);
+  filter:blur(35px);
+  animation:nebula 12s ease-in-out infinite alternate;
+}
+
+@keyframes nebula{
+  to{
+    transform:scale(1.12) rotate(2deg);
+  }
+}
+
+/* Stars */
+
+#stars,
+#sparkles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#fff;
+  border-radius:50%;
+  opacity:.45;
+  animation:rise linear infinite;
+}
+
+@keyframes rise{
+  from{
+    transform:translateY(105vh);
+    opacity:0;
+  }
+  18%{opacity:.65}
+  to{
+    transform:translateY(-8vh);
+    opacity:0;
+  }
+}
+
+.spark{
+  position:absolute;
+  color:#d9989f;
+  animation:float 5s linear infinite;
+  opacity:.55;
+}
+
+@keyframes float{
+  from{
+    transform:translateY(105vh) rotate(0);
+  }
+  to{
+    transform:translateY(-10vh) rotate(180deg);
+  }
+}
+
+/* ================= SCREEN ================= */
+
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  text-align:center;
+
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(18px) scale(.98);
+
+  transition:
+    opacity .8s ease,
+    transform .8s ease,
+    visibility .8s;
+  
+  z-index:3;
+}
+
+.screen.active{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+
+/* ================= PAPER ================= */
+
+.paper{
+  width:min(680px,94vw);
+  min-height:min(700px,90vh);
+  padding:42px 28px;
+
+  border:1px solid rgba(255,190,195,.3);
+  border-radius:30px;
+
+  background:
+    radial-gradient(circle at 20% 10%,
+      rgba(255,190,195,.34),transparent 25%),
+    radial-gradient(circle at 80% 90%,
+      rgba(255,220,150,.24),transparent 25%),
+    rgba(255,248,232,.90);
+
+  box-shadow:
+    0 30px 100px rgba(50,35,45,.20),
+    0 0 80px rgba(210,120,210,.10);
+
+  position:relative;
+  overflow:hidden;
+
+  backdrop-filter:blur(16px);
+}
+
+.paper:before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px dashed rgba(210,150,150,.25);
+  border-radius:22px;
+  pointer-events:none;
+}
+
+.paper:after{
+  content:"♡  ✦  ♡  ✧  ♡";
+  position:absolute;
+  left:50%;
+  bottom:13px;
+  transform:translateX(-50%);
+  font-family:Caveat,cursive;
+  font-size:18px;
+  letter-spacing:10px;
+  color:#d9989f;
+  opacity:.42;
+  white-space:nowrap;
+}
+
+/* ================= TEXT ================= */
+
+.kicker{
+  font-size:9px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#77717a;
+  margin-bottom:18px;
+}
+
+h1,h2{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+}
+
+h1{
+  font-size:clamp(55px,13vw,100px);
+  line-height:.9;
+}
+
+h2{
+  font-size:clamp(42px,9vw,75px);
+  line-height:.95;
+}
+
+.script{
+  font-family:Caveat,cursive;
+  font-size:clamp(30px,6vw,48px);
+  color:#9b625d;
+}
+
+.sub{
+  color:#6f6970;
+  font-size:14px;
+  line-height:1.85;
+  margin:22px auto 30px;
+}
+
+.name{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(52px,16vw,88px);
+  font-weight:600;
+  letter-spacing:2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6d526b 10%,
+      #d19bcf 50%,
+      #6d526b 90%
+    );
+
+  background-size:220%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:shine 4.5s linear infinite;
+}
+
+@keyframes shine{
+  to{
+    background-position:220%;
+  }
+}
+
+.dear{
+  font-family:"Cormorant Garamond",serif;
+  font-size:27px;
+  font-style:italic;
+  color:#9b7898;
+  margin:8px 0 28px;
+}
+
+.rule{
+  width:52px;
+  height:1px;
+  background:#9b7898;
+  opacity:.4;
+  margin:0 auto 25px;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+  border:1px solid #e79da9;
+  background:#f2aeb8;
+  color:#3b2528;
+
+  border-radius:999px;
+  padding:14px 27px;
+
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+
+  cursor:pointer;
+  transition:.3s;
+
+  box-shadow:0 10px 35px rgba(100,50,60,.12);
+}
+
+button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(240,170,181,.30);
+}
+
+.music{
+  position:fixed;
+  top:16px;
+  right:16px;
+  z-index:30;
+
+  width:44px;
+  height:44px;
+  padding:0;
+
+  display:grid;
+  place-items:center;
+
+  background:#fff7e6;
+  color:#3b2b25;
+  border-color:#e79da9;
+
+  font-size:17px;
+}
+
+/* ================= LOCK ================= */
+
+.lock{
+  width:96px;
+  height:96px;
+  margin:0 auto 30px;
+
+  border:1px solid rgba(100,70,100,.18);
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  font-size:36px;
+
+  box-shadow:
+    0 0 55px rgba(210,120,210,.18),
+    inset 0 0 25px rgba(255,255,255,.3);
+
+  animation:pulse 2.6s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.055);
+    box-shadow:
+      0 0 80px rgba(210,120,210,.38),
+      inset 0 0 35px rgba(255,255,255,.04);
+  }
+}
+
+/* ================= STICKERS ================= */
+
+.sticker{
+  position:absolute;
+  font-family:Caveat,cursive;
+  font-size:25px;
+  color:#d9989f;
+  z-index:2;
+}
+
+.sticker.one{
+  top:55px;
+  left:35px;
+  transform:rotate(-8deg);
+}
+
+.sticker.two{
+  right:35px;
+  bottom:65px;
+  transform:rotate(8deg);
+}
+
+/* ================= LOADER ================= */
+
+.loader{
+  width:min(360px,75vw);
+  height:8px;
+  border-radius:10px;
+
+  background:#392f35;
+  overflow:hidden;
+
+  margin:30px auto 20px;
+}
+
+.loader i{
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#a67bff,#f1a1db);
+  animation:load 2.8s forwards;
+}
+
+@keyframes load{
+  to{width:100%}
+}
+
+.status{
+  font-size:11px;
+  color:#77717a;
+  letter-spacing:1px;
+}
+
+/* ================= FORM ================= */
+
+.form{
+  width:min(360px,86vw);
+  margin:25px auto;
+  display:grid;
+  gap:12px;
+}
+
+input{
+  width:100%;
+  padding:15px;
+
+  border:1px solid rgba(255,180,190,.4);
+  background:rgba(255,255,255,.55);
+
+  border-radius:15px;
+  color:#3b2b25;
+
+  text-align:center;
+  outline:none;
+  font-size:15px;
+}
+
+input::placeholder{
+  color:#a99b98;
+}
+
+input:focus{
+  border-color:#e79da9;
+  box-shadow:0 0 25px rgba(240,170,181,.15);
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+  height:min(57vh,520px);
+  width:min(430px,78vw);
+
+  margin:auto;
+  position:relative;
+
+  perspective:1200px;
+}
+
+.photo{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  padding:9px;
+
+  background:#fffaf0;
+
+  border:1px solid #e6d5c5;
+
+  box-shadow:
+    0 22px 45px rgba(100,65,40,.18);
+
+  opacity:0;
+
+  transform:
+    rotateY(65deg)
+    rotate(6deg)
+    translateX(100px)
+    scale(.78);
+
+  transition:
+    1s cubic-bezier(.2,.8,.2,1);
+}
+
+.photo.active{
+  opacity:1;
+  transform:none;
+}
+
+.photo.prev{
+  opacity:.15;
+  transform:
+    rotateY(-50deg)
+    rotate(-5deg)
+    translateX(-100px)
+    scale(.75);
+}
+
+.tape{
+  position:absolute;
+
+  width:100px;
+  height:24px;
+
+  background:rgba(255,207,184,.55);
+
+  top:3px;
+  left:calc(50% - 50px);
+
+  z-index:5;
+
+  transform:rotate(-3deg);
+}
+
+.counter{
+  font-size:9px;
+  letter-spacing:4px;
+  opacity:.5;
+  margin-top:13px;
+}
+
+/* ================= FRIENDSHIP MESSAGE ================= */
+
+.message{
+  max-height:50vh;
+  overflow:auto;
+
+  text-align:left;
+
+  padding:25px;
+
+  border:1px solid rgba(80,60,80,.12);
+  border-radius:24px;
+
+  background:rgba(255,255,255,.58);
+
+  backdrop-filter:blur(18px);
+
+  color:#514b52;
+
+  font-family:"Cormorant Garamond",serif;
+  font-size:20px;
+  line-height:1.65;
+
+  margin:20px 0;
+
+  box-shadow:0 22px 75px rgba(0,0,0,.16);
+}
+
+.message::-webkit-scrollbar{
+  width:3px;
+}
+
+.message::-webkit-scrollbar-thumb{
+  background:#b9919d;
+}
+
+/* ================= CAKE ================= */
+
+.cakeArea{
+  height:340px;
+
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+
+  position:relative;
+}
+
+.cake{
+  width:250px;
+  height:175px;
+  position:relative;
+
+  animation:cakeIn 1s both;
+}
+
+@keyframes cakeIn{
+  from{
+    transform:translateY(90px) scale(.5);
+    opacity:0;
+  }
+  to{
+    transform:none;
+    opacity:1;
+  }
+}
+
+.layer{
+  position:absolute;
+  border-radius:16px 16px 22px 22px;
+  left:0;
+  width:100%;
+}
+
+.bottom{
+  bottom:0;
+  height:100px;
+  background:linear-gradient(#d98b91,#914b57);
+}
+
+.middle{
+  bottom:65px;
+  height:75px;
+  width:88%;
+  left:6%;
+  background:linear-gradient(#ffd0c8,#c76e76);
+}
+
+.topcake{
+  bottom:120px;
+  height:65px;
+  width:72%;
+  left:14%;
+  background:#ffe4d8;
+  border-radius:50% 50% 18px 18px;
+}
+
+.cream{
+  position:absolute;
+  bottom:112px;
+  left:14%;
+  width:72%;
+  height:25px;
+
+  border-radius:50%;
+  background:#fffaf0;
+}
+
+.candle{
+  position:absolute;
+  bottom:163px;
+
+  width:12px;
+  height:53px;
+
+  background:#f8c3cc;
+  border-radius:8px;
+}
+
+.c1{left:31%}
+.c2{left:47%}
+.c3{left:63%}
+
+.flame{
+  position:absolute;
+
+  width:11px;
+  height:17px;
+
+  top:-19px;
+  left:1px;
+
+  background:#ffd66e;
+
+  border-radius:50% 50% 50% 0;
+
+  transform:rotate(45deg);
+
+  box-shadow:0 0 20px #ffc05b;
+
+  animation:flicker .3s infinite alternate;
+}
+
+@keyframes flicker{
+  to{
+    transform:rotate(45deg) scale(1.25);
+  }
+}
+
+.knife{
+  position:absolute;
+
+  width:145px;
+  height:8px;
+
+  background:#eee;
+
+  right:calc(50% - 190px);
+  bottom:150px;
+
+  transform:rotate(-35deg);
+
+  opacity:0;
+
+  border-radius:5px;
+}
+
+.cut .knife{
+  opacity:1;
+  animation:knife 1s forwards;
+}
+
+.cut .candle{
+  animation:fall .7s forwards;
+}
+
+@keyframes knife{
+  from{
+    transform:rotate(-35deg) translate(60px,-45px);
+  }
+  to{
+    transform:rotate(-35deg) translate(0,0);
+    opacity:0;
+  }
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(45px) rotate(15deg);
+    opacity:0;
+  }
+}
+
+/* ================= CONFETTI ================= */
+
+#confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:20;
+}
+
+.conf{
+  position:absolute;
+  top:-20px;
+
+  width:7px;
+  height:13px;
+
+  background:#f0aab5;
+
+  animation:falling 3s linear forwards;
+}
+
+@keyframes falling{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+  }
+}
+
+/* ================= HEART BURST ================= */
+
+#burst{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:25;
+}
+
+.heartFloat{
+  position:absolute;
+  font-size:20px;
+
+  animation:
+    heartUp 2.8s ease-out forwards;
+}
+
+@keyframes heartUp{
+  0%{
+    transform:translateY(20px) scale(.5);
+    opacity:0;
+  }
+
+  15%{
+    opacity:1;
+  }
+
+  100%{
+    transform:
+      translateY(-180px)
+      scale(1.15)
+      rotate(15deg);
+
+    opacity:0;
+  }
+}
+
+/* ================= FINAL ================= */
+
+.finalText{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(32px,9vw,54px);
+  line-height:1.15;
+}
+
+.infinity{
+  font-size:45px;
+  margin:17px 0;
+}
+
+.small{
+  font-size:9px;
+  letter-spacing:3px;
+  color:#777;
+  margin-top:23px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:500px){
+
+  .paper{
+    min-height:88vh;
+    padding:38px 20px;
+  }
+
+  .sticker{
+    font-size:20px;
+  }
+
+  .sticker.one{
+    left:25px;
+    top:35px;
+  }
+
+  .sticker.two{
+    right:25px;
+    bottom:45px;
+  }
+
+  .gallery{
+    height:48vh;
+    width:82vw;
+  }
+
+  .message{
+    max-height:45vh;
+    font-size:19px;
+  }
+
+  .cakeArea{
+    height:300px;
+  }
+
+  .cake{
+    transform:scale(.82);
+    transform-origin:bottom center;
+  }
+
+  .cakeArea .cake{
+    animation:cakeInMobile 1s both;
+  }
+
+  @keyframes cakeInMobile{
+    from{
+      transform:translateY(90px) scale(.4);
+      opacity:0;
+    }
+    to{
+      transform:scale(.82);
+      opacity:1;
+    }
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background -->
+<div id="stars"></div>
+<div id="sparkles"></div>
+
+<!-- Effects -->
+<div id="confetti"></div>
+<div id="burst"></div>
+
+<!-- Music -->
+<audio id="song" src="nanbiye.mp3" loop preload="auto"></audio>
+
+<button class="music" id="music" aria-label="Music">♫</button>
+
+
+<!-- ================================================= -->
+<!-- 1. SECRET OPENING -->
+<!-- ================================================= -->
+
+<section class="screen active" id="s0">
+
+  <div class="paper">
+
+    <div class="sticker one">
+      made with a little ♡
+    </div>
+
+    <div class="sticker two">
+      good things take time ✦
+    </div>
+
+    <div class="card" style="position:relative;z-index:2;padding-top:45px">
+
+      <div class="lock">
+        🔐
+      </div>
+
+      <div class="kicker">
+        PRIVATE BIRTHDAY TRANSMISSION
+      </div>
+
+      <h1>
+        Hey... 👀
+      </h1>
+
+      <p class="sub">
+        I made something special for you.<br>
+        There is a little message hidden inside.<br><br>
+        <i>Are you curious?</i>
+      </p>
+
+      <button id="open">
+        OPEN THE SECRET →
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 2. ACCESS GRANTED -->
+<!-- ================================================= -->
+
+<section class="screen" id="s1">
+
+  <div class="paper">
+
+    <div class="kicker">
+      SECURE CONNECTION
+    </div>
+
+    <h2>
+      ACCESS<br>
+      GRANTED ✓
+    </h2>
+
+    <div class="loader">
+      <i></i>
+    </div>
+
+    <div id="status" class="status">
+      Initializing...
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 3. SUMITHRA -->
+<!-- ================================================= -->
+
+<section class="screen" id="s2">
+
+  <div class="paper">
+
+    <div class="kicker">
+      IDENTITY REVEALED
+    </div>
+
+    <div class="name">
+      SUMITHRA
+    </div>
+
+    <div class="dear">
+      my dear friend ♡
+    </div>
+
+    <div class="rule"></div>
+
+    <p class="sub">
+      Some people become part of our story<br>
+      without even realizing how important they are.
+    </p>
+
+    <button id="toScrapbook">
+      CONTINUE ✨
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 4. SCRAPBOOK -->
+<!-- ================================================= -->
+
+<section class="screen" id="s3">
+
+  <div class="paper">
+
+    <div class="sticker one">
+      today looks cute on you ♡
+    </div>
+
+    <div class="kicker">
+      MEMORIES • LITTLE MOMENTS • SMILES
+    </div>
+
+    <h2 style="font-size:38px;margin-bottom:18px">
+      Our Little Memories
+    </h2>
+
+    <div class="gallery">
+
+      <div class="tape"></div>
+
+      <img
+        class="photo"
+        src="photo1.jpeg"
+        alt="Memory 1"
+      >
+
+      <img
+        class="photo"
+        src="photo2.jpeg"
+        alt="Memory 2"
+      >
+
+      <img
+        class="photo"
+        src="photo3.jpeg"
+        alt="Memory 3"
+      >
+
+      <img
+        class="photo"
+        src="photo4.jpeg"
+        alt="Memory 4"
+      >
+
+      <img
+        class="photo"
+        src="photo5.jpeg"
+        alt="Memory 5"
+      >
+
+      <img
+        class="photo"
+        src="photo6.jpeg"
+        alt="Memory 6"
+      >
+
+    </div>
+
+    <div class="counter" id="counter">
+      01 / 06
+    </div>
+
+    <br>
+
+    <button id="next">
+      NEXT PAGE ✦
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 5. FRIENDSHIP PAGE -->
+<!-- ================================================= -->
+
+<section class="screen" id="s4">
+
+  <div class="paper">
+
+    <div class="sticker one">
+      a little note ♡
+    </div>
+
+    <div class="sticker two">
+      forever friend ✦
+    </div>
+
+    <div class="kicker">
+      A FEW WORDS ABOUT FRIENDSHIP
+    </div>
+
+    <h2>
+      Some friendships<br>
+      feel different. ♡
+    </h2>
+
+    <p style="
+      font-size:18px;
+      line-height:1.8;
+      margin:28px auto;
+      max-width:520px;
+      color:#6b554b;
+    ">
+
+      No matter how many days change,<br>
+
+      a true friend still feels like home.<br>
+
+      Fights may come, and people may change,<br>
+
+      but some bonds are simply meant to stay.
+
+    </p>
+
+    <div class="script">
+      Thank you for being a beautiful part of my story. ♡
+    </div>
+
+    <br>
+
+    <button id="toBirthday">
+      HAPPY BIRTHDAY → 🎂
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 6. CAKE -->
+<!-- ================================================= -->
+
+<section class="screen" id="s5">
+
+  <div class="paper">
+
+    <div class="kicker">
+      MAKE A WISH
+    </div>
+
+    <h2>
+      One more thing...
+    </h2>
+
+    <div class="cakeArea" id="cakeArea">
+
+      <div class="cake">
+
+        <div class="layer bottom"></div>
+
+        <div class="layer middle"></div>
+
+        <div class="layer topcake"></div>
+
+        <div class="cream"></div>
+
+        <div class="candle c1">
+          <span class="flame"></span>
+        </div>
+
+        <div class="candle c2">
+          <span class="flame"></span>
+        </div>
+
+        <div class="candle c3">
+          <span class="flame"></span>
+        </div>
+
+      </div>
+
+      <div class="knife"></div>
+
+    </div>
+
+    <button id="cut">
+      CUT THE CAKE 🎂
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 7. BIRTHDAY MESSAGE -->
+<!-- ================================================= -->
+
+<section class="screen" id="s6">
+
+  <div class="paper">
+
+    <div class="kicker">
+      A MESSAGE FROM THE HEART
+    </div>
+
+    <h1 style="font-size:55px">
+      Happy Birthday 🎂
+    </h1>
+
+    <div id="message" class="message"></div>
+
+    <button id="finalButton">
+      ONE MORE THING →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 8. FINAL FRIENDSHIP NOTE -->
+<!-- ================================================= -->
+
+<section class="screen" id="s7">
+
+  <div class="paper">
+
+    <div class="heart" style="font-size:55px">
+      ♡
+    </div>
+
+    <div class="kicker">
+      ALWAYS REMEMBER
+    </div>
+
+    <div class="finalText">
+      No matter what...
+    </div>
+
+    <div class="infinity">
+      ♾️
+    </div>
+
+    <p class="sub">
+
+      சண்டைகள் நம்மை பிரித்தாலும்,<br>
+
+      காலம் நம்மை தூரமாக்கினாலும்,<br>
+
+      <b>
+        என் மனதில் மாறாத உறவு நீ தான்,
+      </b>
+      <br>
+
+      <b>
+        என் தோழி . 🤍✨😸
+      </b>
+
+    </p>
+
+    <div class="finalText">
+      You’ll Always Be<br>
+      <b>My Friend...</b>
+    </div>
+
+    <div class="small">
+      HAPPY BIRTHDAY, SUMITHRA ✦
+    </div>
+
+    <div class="small"
+         style="margin-top:14px;letter-spacing:2px">
+      By • TTL CREATOR’S • 9994577018
+    </div>
+<br>
+
+<button id="To Cute Question">
+  ONE LAST THING... ♡
+</button>
+    
+  </div>
+
+</section>
+  <!-- ================================================= -->
+<!-- 9. SWEET QUESTION -->
+<!-- ================================================= -->
+
+<section class="screen" id="s8">
+
+  <div class="paper">
+
+    <div class="sticker one">
+      one little question ♡
+    </div>
+
+    <div class="sticker two">
+      be honest ✦
+    </div>
+
+    <div class="kicker">
+      JUST FOR YOU
+    </div>
+
+    <h2 style="font-size:42px;">
+      One Little Question... 💭
+    </h2>
+
+    <p style="
+      font-family:'Cormorant Garamond',serif;
+      font-size:23px;
+      line-height:1.6;
+      margin:28px auto;
+      max-width:500px;
+      color:#6b554b;
+    ">
+      எவ்வளவு சண்டை வந்தாலும்,<br>
+      என்னை உன் friend-ஆ வைத்திருக்க<br>
+      காரணம் என்ன? 🥹🤍
+    </p>
+
+    <div class="form">
+
+      <textarea
+        id="answer"
+        placeholder="Type your answer here... ♡"
+        style="
+          width:100%;
+          min-height:150px;
+          resize:none;
+          padding:18px;
+          border:1px solid rgba(255,180,190,.4);
+          background:rgba(255,255,255,.55);
+          border-radius:18px;
+          color:#3b2b25;
+          outline:none;
+          font-family:Inter,Arial,sans-serif;
+          font-size:15px;
+          line-height:1.6;
+        "
+      ></textarea>
+
+      <button id="sendAnswer">
+        SEND MY ANSWER ♡
+      </button>
+
+    </div>
+
+    <p style="
+      font-size:10px;
+      letter-spacing:1px;
+      color:#999;
+      margin-top:18px;
+    ">
+      There is no right or wrong answer ✦
+    </p>
+
+  </div>
+
+</section>
+    <p style="
+      font-size:10px;
+      letter-spacing:1px;
+      color:#999;
+      margin-top:18px;
+    ">
+      There is no right or wrong answer ✦
+    </p>
+
+  </div>
+
+</section>
+
+<script>
+
+/* ================================================= */
+/* STARS */
+/* ================================================= */
+
+for(let i=0;i<75;i++){
+
+  const s=document.createElement("i");
+
+  s.className="star";
+
+  s.style.left=Math.random()*100+"%";
+
+  s.style.animationDuration=
+    (5+Math.random()*10)+"s";
+
+  s.style.animationDelay=
+    (-Math.random()*12)+"s";
+
+  document.getElementById("stars").appendChild(s);
+}
+
+
+/* ================================================= */
+/* SPARKLES */
+/* ================================================= */
+
+for(let i=0;i<35;i++){
+
+  const s=document.createElement("span");
+
+  s.className="spark";
+
+  s.textContent=
+    ["✦","♡","·","✧"][Math.floor(Math.random()*4)];
+
+  s.style.left=Math.random()*100+"%";
+
+  s.style.animationDuration=
+    (5+Math.random()*8)+"s";
+
+  s.style.animationDelay=
+    (-Math.random()*10)+"s";
+
+  s.style.fontSize=
+    (8+Math.random()*14)+"px";
+
+  document.getElementById("sparkles")
+    .appendChild(s);
+}
+
+
+/* ================================================= */
+/* SCREEN SYSTEM */
+/* ================================================= */
+
+const screens=[
+  ...document.querySelectorAll(".screen")
+];
+
+let current=0;
+
+function go(n){
+
+  screens[current].classList.remove("active");
+
+  current=n;
+
+  screens[current].classList.add("active");
+
+}
+
+
+/* ================================================= */
+/* MUSIC */
+/* ================================================= */
+
+const song=
+  document.getElementById("song");
+
+const music=
+  document.getElementById("music");
+
+function playMusic(){
+
+  song.volume=.55;
+
+  song.play().catch(()=>{});
+
+  music.textContent="♫";
+
+}
+
+music.onclick=()=>{
+
+  if(song.paused){
+
+    playMusic();
+
+  }else{
+
+    song.pause();
+
+    music.textContent="Ⅱ";
+
+  }
+
+};
+
+
+/* ================================================= */
+/* OPEN SECRET */
+/* ================================================= */
+
+document.getElementById("open").onclick=()=>{
+
+  playMusic();
+
+  go(1);
+
+  const status=
+    document.getElementById("status");
+
+  const list=[
+    "Initializing...",
+    "Decrypting message...",
+    "Finding someone special...",
+    "Preparing birthday surprise...",
+    "Almost ready..."
+  ];
+
+  let i=0;
+
+  const timer=setInterval(()=>{
+
+    i++;
+
+    if(i<list.length){
+
+      status.textContent=list[i];
+
+    }else{
+
+      clearInterval(timer);
+
+      setTimeout(()=>{
+        go(2);
+      },700);
+
+    }
+
+  },650);
+
+};
+
+
+/* ================================================= */
+/* SUMITHRA → SCRAPBOOK */
+/* ================================================= */
+
+document.getElementById("toScrapbook")
+  .onclick=()=>{
+
+    go(3);
+
+    showPhoto(0);
+
+  };
+
+
+/* ================================================= */
+/* PHOTO SLIDER */
+/* ================================================= */
+
+const photos=[
+  ...document.querySelectorAll(".photo")
+];
+
+let idx=0;
+
+function showPhoto(n){
+
+  idx=(n+photos.length)%photos.length;
+
+  photos.forEach((p,i)=>{
+
+    p.classList.toggle(
+      "active",
+      i===idx
+    );
+
+    p.classList.toggle(
+      "prev",
+      i===
+      (idx-1+photos.length)%photos.length
+    );
+
+  });
+
+  document.getElementById("counter")
+    .textContent=
+      String(idx+1).padStart(2,"0")
+      +" / "
+      +String(photos.length).padStart(2,"0");
+
+}
+
+
+document.getElementById("next").onclick=()=>{
+
+  if(idx===photos.length-1){
+
+    go(4);
+
+    return;
+
+  }
+
+  showPhoto(idx+1);
+
+};
+
+showPhoto(0);
+
+
+/* ================================================= */
+/* FRIENDSHIP → CAKE */
+/* ================================================= */
+
+document.getElementById("toBirthday")
+  .onclick=()=>{
+
+    go(5);
+
+  };
+
+
+/* ================================================= */
+/* CAKE CUT */
+/* ================================================= */
+
+document.getElementById("cut").onclick=()=>{
+
+  const area=
+    document.getElementById("cakeArea");
+
+  area.classList.add("cut");
+
+  setTimeout(()=>{
+
+    makeConfetti();
+
+    go(6);
+
+    typeMessage();
+
+  },1200);
+
+};
+
+
+/* ================================================= */
+/* CONFETTI */
+/* ================================================= */
+
+function makeConfetti(){
+
+  const box=
+    document.getElementById("confetti");
+
+  box.innerHTML="";
+
+  for(let i=0;i<85;i++){
+
+    const c=
+      document.createElement("i");
+
+    c.className="conf";
+
+    c.style.left=
+      Math.random()*100+"%";
+
+    c.style.animationDelay=
+      (Math.random()*.7)+"s";
+
+    c.style.transform=
+      "rotate("+Math.random()*360+"deg)";
+
+    box.appendChild(c);
+
+  }
+
+}
+
+
+/* ================================================= */
+/* BIRTHDAY MESSAGE */
+/* ================================================= */
+
+const text=`Sumithra...
+
+First of all,
+
+Happy Birthday to you Friend ehhh. 🎂✨
+
+Life-la evlo changes vandhaalum,
+namma friendship-la misunderstandings vandhaalum,
+sanda vandhaalum...
+
+oru vishayam mattum change aagathu.
+
+Nee en friend.
+Adhuvum enakku eppavume friend dhaan. ♾️
+
+Sometimes we may not talk.
+Sometimes we may get angry.
+Sometimes things may not go the way we expect.
+
+But none of those things can erase the friendship
+we have built.
+
+Un life-la pudhusa neraya friends varalaam.
+Unakku close-a neraya per aagalaam.
+
+Aana enakku...
+
+You will always be my friend. ❤️
+
+No replacement.
+No comparison.
+
+Just a friendship that I will always value.
+
+So, on your birthday,
+I just want you to be happy.
+
+Keep smiling.
+Keep shining.
+Keep achieving everything you dream about.
+
+And no matter how much life changes...
+
+I'll always remember you
+as my dear friend. ✨
+
+Happy Birthday, Sumithra My Dear Friend Ehhh. 💗
+
+Sorry Every Think and naa etha naa thappu panni 
+irutha manichi tu 🥹✨
+
+I Always Trust You `;
+
+
+function typeMessage(){
+
+  const box=
+    document.getElementById("message");
+
+  box.innerHTML="";
+
+  let n=0;
+
+  function type(){
+
+    if(n<text.length){
+
+      box.innerHTML=
+        text
+        .slice(0,n+1)
+        .replace(/\n/g,"<br>");
+
+      n++;
+
+      setTimeout(
+        type,
+        text[n-1]==="." ? 65 : 18
+      );
+
+    }
+
+  }
+
+  type();
+
+}
+
+
+/* ================================================= */
+/* FINAL PAGE */
+/* ================================================= */
+
+document.getElementById("finalButton")
+  .onclick=()=>{
+
+    go(7);
+
+    hearts();
+
+  };
+
+
+/* ================================================= */
+/* HEART EFFECT */
+/* ================================================= */
+
+function hearts(){
+
+  const b=
+    document.getElementById("burst");
+
+  b.innerHTML="";
+
+  for(let i=0;i<22;i++){
+
+    const h=
+      document.createElement("span");
+
+    h.className="heartFloat";
+
+    h.textContent=
+      i%3===0 ? "♡" :
+      i%3===1 ? "✦" : "✨";
+
+    h.style.left=
+      (10+Math.random()*80)+"%";
+
+    h.style.bottom=
+      (15+Math.random()*25)+"%";
+
+    h.style.animationDelay=
+      (Math.random()*.8)+"s";
+
+    b.appendChild(h);
+
+    setTimeout(
+      ()=>h.remove(),
+      3500
+    );
+
+  }
+
+}
+
+/* ================================================= */
+/* S7 → S8 QUESTION PAGE */
+/* ================================================= */
+
+document.getElementById("toQuestion").addEventListener("click", function(){
+
+  showScreen("s8");
+
+});
+
+
+/* ================================================= */
+/* SEND ANSWER */
+/* ================================================= */
+
+document.getElementById("sendAnswer").addEventListener("click", function(){
+
+  const answer =
+    document.getElementById("answer").value.trim();
+
+  if(answer === ""){
+    alert("Write something for me first... 🥹🤍");
+    return;
+  }
+
+  console.log("Answer received:", answer);
+
+  showScreen("s9");
+
+});
+  /* ================================================= */
+/* S7 → S8 */
+/* ================================================= */
+
+document.getElementById("toQuestion").addEventListener("click", function(){
+
+  showScreen("s8");
+
+});
+
+
+/* ================================================= */
+/* S8 → S9 */
+/* ================================================= */
+
+document.getElementById("sendAnswer").addEventListener("click", function(){
+
+  const answer =
+    document.getElementById("answer").value.trim();
+
+  if(answer === ""){
+    alert("Write something for me first... 🥹🤍");
+    return;
+  }
+
+  console.log("Answer:", answer);
+
+  showScreen("s9");
+
+});
+</script>
+
+</body>
+</html>
